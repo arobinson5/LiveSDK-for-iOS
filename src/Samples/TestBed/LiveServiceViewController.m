@@ -8,8 +8,11 @@
 #import "LiveServiceViewController.h"
 #import "LiveAuthHelper.h"
 
+#define kJNLiveConnectClientID @"000000004C107327"
+#define kJNLiveConnectSecret @"VlvWgMS5rX2U3z-Sg8iJHyjRxcjpouEC"
+
 // Set the CLIENT_ID value to be the one you get from http://manage.dev.live.com/
-static NSString * const CLIENT_ID = @"%CLIENT_ID%";
+static NSString * const CLIENT_ID = kJNLiveConnectClientID; //@"%CLIENT_ID%";
 
 @implementation LiveServiceViewController
 

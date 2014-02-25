@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6C295FAF-30EB-4297-B03C-B25B5F588796</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LiveSDK</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D2B47E79-38A1-4371-B636-F5CE6E423B6C</key>
+		<string>https://github.com/liveservices/LiveSDK-for-iOS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>src/LiveSDK.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D2B47E79-38A1-4371-B636-F5CE6E423B6C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/liveservices/LiveSDK-for-iOS</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D2B47E79-38A1-4371-B636-F5CE6E423B6C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D2B47E79-38A1-4371-B636-F5CE6E423B6C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LiveSDK-for-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
