@@ -2,7 +2,19 @@
 //  LiveAuthRefreshRequestTests.m
 //  Live SDK for iOS
 //
-//  Copyright (c) 2011 Microsoft. All rights reserved.
+//  Copyright 2014 Microsoft Corporation
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "JsonWriter.h"
@@ -113,9 +125,10 @@
     NSString *requestBodyString = [[[NSString alloc] initWithData:request.HTTPBody
                                                          encoding:NSUTF8StringEncoding] 
                                    autorelease];
-    STAssertEqualObjects(@"scope=wl.signin%20wl.basic&grant_type=refresh_token&refresh_token=refresh%20token&client_id=56789999932", requestBodyString, @"Invalid url");
+    STAssertEqualObjects(@"client_id=56789999932&refresh_token=refresh%20token&scope=wl.signin%20wl.basic&grant_type=refresh_token", requestBodyString, @"Invalid url");
     STAssertEqualObjects(LIVE_AUTH_POST_CONTENT_TYPE, [request valueForHTTPHeaderField:LIVE_API_HEADER_CONTENTTYPE], @"Incorrect content-type.");
-    
+        
+
     // set response
     id delegate = connection.delegate;
     MockResponse *response = [[[MockResponse alloc] init] autorelease];

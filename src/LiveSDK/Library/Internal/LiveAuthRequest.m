@@ -2,7 +2,19 @@
 //  LiveAuthRequest.m
 //  Live SDK for iOS
 //
-//  Copyright (c) 2011 Microsoft Corp. All rights reserved.
+//  Copyright 2014 Microsoft Corporation
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "LiveAuthDialogDelegate.h"
@@ -34,7 +46,7 @@ currentViewController:(UIViewController *)currentViewController
     self = [super init];
     if (self) 
     {
-        _client = [client retain];
+        _client = client;
         _scopes = [scopes copy];
         _currentViewController = [currentViewController retain];
         _delegate = delegate;
@@ -48,8 +60,8 @@ currentViewController:(UIViewController *)currentViewController
 - (void)dealloc
 {    
     _authViewController.delegate = nil;
+    [_tokenConnection cancel];
     
-    [_client release];
     [_scopes release];
     [_userState release];
     

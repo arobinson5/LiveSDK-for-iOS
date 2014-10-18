@@ -2,7 +2,19 @@
 //  UrlHelperTests.m
 //  Live SDK for iOS
 //
-//  Copyright (c) 2011 Microsoft Corp. All rights reserved.
+//  Copyright 2014 Microsoft Corporation
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "UrlHelper.h"
@@ -13,8 +25,9 @@
 - (void) testUrlParameterEncoding
 {
     NSDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"value 1", @"key1", @"value 2", @"key2", nil ];
-    STAssertEqualObjects(@"key2=value%202&key1=value%201", [UrlHelper encodeUrlParameters:params], @"Encoding incorrectly");
+    STAssertEqualObjects(@"key1=value%201&key2=value%202", [UrlHelper encodeUrlParameters:params], @"Encoding incorrectly");
 }
+
 
 - (void) testUrlParameterDecoding
 {
@@ -36,7 +49,7 @@
     NSURL *url = [UrlHelper constructUrl:@"http://apis.live.net/v5.0/obj001"
                                   params:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"value 1", @"key1", @"value 2", @"key2", nil ]];
     
-    STAssertEqualObjects(@"http://apis.live.net/v5.0/obj001?key2=value%202&key1=value%201", url.absoluteString, @"Construct Url incorrrectly");
+    STAssertEqualObjects(@"http://apis.live.net/v5.0/obj001?key1=value%201&key2=value%202", url.absoluteString, @"Construct Url incorrrectly");
 }
 
 - (void) testConstructUrl_WithParamsAndParams
@@ -44,7 +57,7 @@
     NSURL *url = [UrlHelper constructUrl:@"http://apis.live.net/v5.0/obj001?key3=V3"
                                   params:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"value 1", @"key1", @"value 2", @"key2", nil ]];
     
-    STAssertEqualObjects(@"http://apis.live.net/v5.0/obj001?key3=V3&key2=value%202&key1=value%201", url.absoluteString, @"Construct Url incorrrectly");
+    STAssertEqualObjects(@"http://apis.live.net/v5.0/obj001?key3=V3&key1=value%201&key2=value%202", url.absoluteString, @"Construct Url incorrrectly");
 }
 
 - (void) testParseUrl

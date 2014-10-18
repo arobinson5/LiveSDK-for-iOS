@@ -2,7 +2,19 @@
 //  LiveAuthRefreshRequest.m
 //  Live SDK for iOS
 //
-//  Copyright (c) 2011 Microsoft. All rights reserved.
+//  Copyright 2014 Microsoft Corporation
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "LiveAuthHelper.h"
@@ -32,7 +44,7 @@
         _refreshToken = [refreshToken retain];
         _delegate = delegate;
         _userState = [userState retain];
-        _client = [client retain];
+        _client = client;
     }
     
     return self;
@@ -40,11 +52,12 @@
 
 - (void) dealloc
 {
+    [tokenConnection cancel];
+    
     [_clientId release];
     [_scopes release];
     [_refreshToken release];
     [_userState release];
-    [_client release];
     [tokenConnection release];
     [tokenResponseData release];
     
@@ -65,6 +78,11 @@
                                                                          scope:_scopes]];
     
     self.tokenConnection = [LiveConnectionHelper createConnectionWithRequest:request delegate:self];
+}
+
+- (void) cancel
+{
+    [self.tokenConnection cancel];
 }
 
 - (void) complete
